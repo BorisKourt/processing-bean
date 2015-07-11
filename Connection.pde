@@ -54,7 +54,7 @@ class Connection {
         float data = theOscMessage.get(3).floatValue();
 
         if ( am_debugging ) {
-          println("###    values: " + beanUUID + ", " + number + ", " + data);
+          println("###    values: " + beanUUID + ", " + beanName + ", " + number + ", " + data);
         }
 
         updateDevice(beanUUID,beanName, number, data);

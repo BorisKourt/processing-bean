@@ -1,7 +1,7 @@
 Connection osc = new Connection(41234, false); // Set to true if you need to see debug info.
 
 void setup() {
-  size( 20, 20 );
+  size( 300, 300 );
   frameRate( 25 );
 }
  
@@ -23,16 +23,9 @@ void draw() {
 
 void handle_device(Device bean) { 
   
-  // If you want to draw something for a specific bean. 
-  // if(bean.name == "bats") {
-  //  int value = bean.get(2);
-  //  ellipse(value, value, 0,0); 
-  // }
+  // Draws an ellipse for each bean.
+  ellipse(bean.get(1), bean.get(2), bean.get(3), bean.get(3));
   
-  println( bean.UUID ); // get the value of #1 'data store' on the bean.
-  println( bean.get(2) ); // get the value of #1 'data store' on the bean.
-
-  // println( bean.get(3) ); // get the value of #1 'data store' on the bean.
-  // println( bean.get(4) ); // get the value of #1 'data store' on the bean.
+  // println( bean.get(1) ); // get the value of #1 'data store' on the bean.
 
 }
