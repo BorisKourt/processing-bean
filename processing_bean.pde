@@ -1,4 +1,4 @@
-Connection osc = new Connection(41234, false); // Set to true if you need to see debug info.
+Connection osc = new Connection();
 
 void setup() {
   size( 600, 600 );
@@ -6,8 +6,6 @@ void setup() {
 }
  
 void draw() {
-  
- 
   
   // Check if there are any devices before looping over them.
   if( osc.devices != null ) {
@@ -18,7 +16,6 @@ void draw() {
     }
   }
   
- 
 }
 
 void handle_device(Device bean) { 

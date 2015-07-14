@@ -15,6 +15,16 @@ class Connection {
 
   boolean am_debugging;
 
+  Connection () {  
+    oscP5 = new OscP5(this, 41102);
+    am_debugging = false;
+  }
+
+  Connection (int port) {  
+    oscP5 = new OscP5(this, port);
+    am_debugging = false;
+  } 
+
   Connection (int port, boolean debug) {  
     oscP5 = new OscP5(this, port);
     am_debugging = debug;
