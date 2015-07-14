@@ -25,7 +25,7 @@ That is all that you need to run the sketch.
 You can have as many Beans connected at a time as you want. Each one is stored and handled separately via the `Connection` class. Simply iterate over the `osc.devices` array to get access to each Bean individually. 
 
 ```pde
-if( osc.devices != null ) { // If there are any Beans
+if( osc.devices != null ) { // check if any beans are available first.
     for (Device bean : osc.devices) {
     	// Do something here for each Bean
     	println(bean.get(1)); // i.e. Get the first value from it.
