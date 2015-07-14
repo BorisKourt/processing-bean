@@ -1,16 +1,20 @@
 ## Download
 
-This git repository will work as a processing sketch folder. Simply clone it into your `~\Documents\Processing\` directory as `processing_bean`. 
+This git repository will work as a Processing sketch folder. Simply clone it into your `~\Documents\Processing\` directory as `processing_bean`. i.e.
 
-i.e. `git clone git@github.com:BorisKourt/processing-bean.git processing_bean`
+```sh
+git clone git@github.com:BorisKourt/processing-bean.git processing_bean
+```
 
 If you would rather download a zipped archive of these files, just follow [this link](https://github.com/BorisKourt/processing-bean/archive/master.zip). Note that you will need to rename the unzipped folder to processing_bean, or Processing wont recognize it as a valid sketch.
 
 ## Dependencies
 
+I would recommend that processing beta is installed, it has some nice editing features (version 3.0a10 or above.)
+
 This library depends on the oscP5 library. In the Processing IDE go to `Sketch -> Import Library -> Add Library` and search for `osc`. 
 
-That is all that you need to set up. 
+That is all that you need to run the sketch.
 
 ## Running
 
