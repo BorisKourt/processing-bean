@@ -1,33 +1,70 @@
 Connection osc = new Connection();
 
 void setup() {
-  size( 600, 600 );
-  frameRate( 25 );
+  size( 1024, 768 );
+  frameRate( 60 );
 }
  
 void draw() {
-  background(250);
+  background(200);
   
   // Check if there are any devices before looping over them.
   if( osc.devices != null ) {
     
-    // Do things based on the data for each device.
-    for (Device bean : osc.devices) {
-        handle_device(bean);
+    for(int i = 0; i < osc.devices.length; i++) {
+      Device bean = osc.devices[i]; // Store the current device for ease of access.
+      
+      // Calculate the width for the whole bean. 
+      int bean_area = width / osc.devices.length; 
+      int rectangle_width = bean_area / 3;
+      
+      noStroke();
+      translate(0, height / 2); // Moves to center vertically.
+      
+      // Draw a transparent background for the whole bean.
+      if (i % 2 == 0) {
+        fill( 255 - (20 * i), 20 * i, 0, 50  );
+      } else {
+        fill( 0, 20 * i, 255 - (20 * i), 50 );
+      }
+      
+      rect(i * bean_area, height / 2 * -1, bean_area, height);
+      
+      stroke(255);
+      strokeWeight(2);
+      
+      // These are just to get more random colors quickly:
+      if (i % 2 == 0) {
+        fill( 255 - (20 * i), 20 * i, 0  );
+      } else {
+        fill( 0, 20 * i, 255 - (20 * i) );
+      }
+      
+      // Display a rectangle for each axis:
+      rect(i * bean_area, 0, rectangle_width, bean.get(1));
+      rect(i * bean_area + rectangle_width, 0, rectangle_width, bean.get(2));
+      rect(i * bean_area + (rectangle_width * 2), 0, rectangle_width, bean.get(3));
+      
+      // Show the name of the bean on screen!
+      //   text with text shadow for readability.
+      fill(0);
+      text(bean.name, i * bean_area + 6, 21 );
+      fill(255);
+      text(bean.name, i * bean_area + 5, 20 );
+      text(bean.name, i * bean_area + 5, 20 ); // Shows up better.
+      
+      // Show the values:
+      fill(0);
+      text(bean.get(1), i * bean_area + 6, -19 );
+      text(bean.get(2), i * bean_area + 6 + rectangle_width, -19 );
+      text(bean.get(3), i * bean_area + 6 + (rectangle_width * 2), -19 ); 
+      fill(255);
+      text(bean.get(1), i * bean_area + 5, -20 );
+      text(bean.get(2), i * bean_area + 5 + rectangle_width, -20 );
+      text(bean.get(3), i * bean_area + 5 + (rectangle_width * 2), -20 ); 
+
+      translate(0, height / 2 * -1); // returns to original coords for next translate.
     }
   }
   
-}
-
-void handle_device(Device bean) { 
- 
-  //'Sets' the 0,0 locatin to center of the screen:
-  translate(width / 2, height / 2);
-  //Draws a circle based on the first three data slot
-  ellipse(bean.get(1), bean.get(2), bean.get(3), bean.get(3));
-  //Resets the above translation, as they persist and add to eachother.
-  translate(width / 2 * -1, height / 2 * -1);
-  
-  // println( bean.get(1) ); // get the value of #1 'data slot' on the bean.
-
 }
