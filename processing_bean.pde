@@ -10,13 +10,13 @@ void draw() {
   
   // Check if there are any devices before looping over them.
   if( osc.devices != null ) {
-    
+    // Loop over the array of current devices.
     for(int i = 0; i < osc.devices.length; i++) {
       Device bean = osc.devices[i]; // Store the current device for ease of access.
       
-      // Calculate the width for the whole bean. 
+      // Calculate the width for the whole bean to take up. 
       int bean_area = width / osc.devices.length; 
-      int rectangle_width = bean_area / 3;
+      int rectangle_width = bean_area / 3; // 1/3 of that for X, Y, Z bars.
       
       noStroke();
       translate(0, height / 2); // Moves to center vertically.
